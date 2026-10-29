@@ -1,0 +1,1 @@
+{"name":"asvora-project","private":true,"scripts":{"build":"npm --prefix frontend run build"}}

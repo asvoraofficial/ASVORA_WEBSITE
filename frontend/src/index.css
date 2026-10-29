@@ -1,0 +1,16 @@
+@tailwind base; @tailwind components; @tailwind utilities;
+html{scroll-behavior:smooth} body{@apply bg-ink text-white font-sans antialiased overflow-x-hidden}
+@media(max-width:767px){html,body{-ms-overflow-style:none;scrollbar-width:none}html::-webkit-scrollbar,body::-webkit-scrollbar{display:none;width:0;height:0}}
+::selection{background:#7c5cff;color:#fff}
+.grad{background:linear-gradient(90deg,#c6ff3d,#7c5cff 60%,#38bdf8);-webkit-background-clip:text;color:transparent}
+.card{@apply rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur}
+.btn{@apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition active:scale-95}
+.btn-p{@apply btn bg-lime text-black hover:shadow-[0_0_40px_#c6ff3d66]} .btn-g{@apply btn border border-white/15 hover:bg-white/10}
+.inp{@apply w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-base outline-none transition focus:border-brand focus:bg-white/10 sm:text-sm}
+select.inp{background-color:#0e1016;color:#ffffff}
+select.inp option{background-color:#0e1016;color:#ffffff;padding:8px 12px}
+.scrollbar-thin::-webkit-scrollbar{width:5px}
+.scrollbar-thin::-webkit-scrollbar-track{background:transparent}
+.scrollbar-thin::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.15);border-radius:9999px}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover{background:rgba(198,255,61,0.5)}
+.grid-bg{background-image:linear-gradient(#ffffff0a 1px,transparent 1px),linear-gradient(90deg,#ffffff0a 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at top,#000 30%,transparent 75%)}
