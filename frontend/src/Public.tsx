@@ -36,7 +36,7 @@ const matchesService = (category: unknown, title: unknown) => {
   return c === t || c.includes(t) || t.includes(c)
 }
 
-const REVIEW_PROMPT_KEY = 'asvora_review_prompt_v1'
+const REVIEW_PROMPT_KEY = 'aszenix_review_prompt_v1'
 const REVIEW_PROMPT_COOLDOWN_MS = 60 * 60 * 1000
 type ReviewPromptState = { lastPromptAt: number; submitted: boolean }
 
@@ -157,7 +157,7 @@ function Nav({ c, hasProjects, hasTestimonials, currentPath, onStartProject }: a
       <motion.header initial={{ y: -80 }} animate={{ y: 0 }} className="fixed inset-x-0 top-0 z-50 flex justify-center px-3 pt-3 sm:px-4 sm:pt-4">
         <nav className={`flex w-full max-w-6xl items-center justify-between rounded-full px-4 py-3 sm:px-5 transition-all duration-500 ${s ? 'border border-white/10 bg-ink/80 backdrop-blur-xl shadow-xl shadow-black/30' : ''}`}>
           <Link to="/" onClick={() => setO(false)} className="font-display text-xl font-bold tracking-tight">
-            <BrandLogo logo={media(c.logo)} label={c.brand || 'ASVORA'}>{c.brand || 'ASVORA'}</BrandLogo>
+            <BrandLogo logo={media(c.logo)} label={c.brand || 'ASZENIX'}>{c.brand || 'ASZENIX'}</BrandLogo>
           </Link>
 
           {/* Desktop Navigation */}
@@ -433,7 +433,7 @@ function QuoteModal({
             <div>
               <Tag>Request a Quote</Tag>
               <h2 id="quote-modal-title" className="mt-3 font-display text-2xl sm:text-3xl font-bold">
-                Start your project with ASVORA
+                Start your project with ASZENIX
               </h2>
               <p className="mt-2 text-sm text-white/60">
                 Share your requirements below and our team will get back to you with a tailored plan.
@@ -1098,7 +1098,7 @@ function WorksPage({ d, onStartProject }: { d: any; onStartProject: (serviceTitl
           onClick={() => onStartProject()}
           className="btn-p !py-3 !px-8 text-base"
         >
-          Start your project with ASVORA →
+          Start your project with ASZENIX →
         </button>
       </div>
     </div>
@@ -1265,7 +1265,7 @@ function HomePage({
 
       <section id="about" className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-8 sm:px-5 sm:py-10 md:py-14 lg:grid-cols-2">
         <motion.div {...rv()}>
-          <Tag>About {c.brand || 'ASVORA'}</Tag>
+          <Tag>About {c.brand || 'ASZENIX'}</Tag>
           <h2 className="mt-5 font-display text-3xl font-bold sm:text-4xl md:text-5xl">
             {c.aboutTitle || 'Creative digital work. Made for your business.'}
           </h2>
@@ -1451,7 +1451,7 @@ export default function Public() {
     return (
       <main className="grid min-h-screen place-items-center px-5 text-center">
         <div>
-          <p className="font-display text-2xl">{loadError ? 'Portfolio unavailable' : 'ASVORA'}</p>
+          <p className="font-display text-2xl">{loadError ? 'Portfolio unavailable' : 'ASZENIX'}</p>
           {loadError ? (
             <>
               <p role="alert" className="mt-3 text-sm text-red-300">
@@ -1537,7 +1537,7 @@ export default function Public() {
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-5 text-center sm:flex-row sm:text-left">
           <div>
             <Link to="/" className="font-display text-2xl font-bold">
-              <BrandLogo logo={media(c.logo)} label={c.brand || 'ASVORA'} imageClassName="h-10 w-10">{c.brand || 'ASVORA'}</BrandLogo>
+              <BrandLogo logo={media(c.logo)} label={c.brand || 'ASZENIX'} imageClassName="h-10 w-10">{c.brand || 'ASZENIX'}</BrandLogo>
             </Link>
             <p className="mt-2 text-sm text-white/50">Digital solutions for your business.</p>
           </div>
@@ -1551,7 +1551,7 @@ export default function Public() {
             <a href="/#about" className="hover:text-lime">About</a>
             <a href="/#contact" className="hover:text-lime">Contact</a>
           </div>
-          <p className="text-xs text-white/40">© {new Date().getFullYear()} {c.brand || 'ASVORA'}. All rights reserved.</p>
+          <p className="text-xs text-white/40">© {new Date().getFullYear()} {c.brand || 'ASZENIX'}. All rights reserved.</p>
         </div>
       </footer>
 
@@ -1583,7 +1583,7 @@ export default function Public() {
                 ✕
               </button>
               <div>
-                <Tag>ASVORA</Tag>
+                <Tag>ASZENIX</Tag>
                 <h2 id="review-dialog-title" className="mt-4 font-display text-2xl font-bold">
                   How was your experience?
                 </h2>

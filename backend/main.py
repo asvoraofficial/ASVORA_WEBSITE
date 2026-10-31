@@ -100,12 +100,12 @@ async def lifespan(_app: FastAPI):
 
 
 
-app = FastAPI(title="ASVORA API", lifespan=lifespan)
+app = FastAPI(title="ASZENIX API", lifespan=lifespan)
 @app.get("/")
 async def root():
     return {
         "status": "running",
-        "service": "ASVORA API"
+        "service": "ASZENIX API"
     }
 
 app.add_middleware(
@@ -415,7 +415,7 @@ def check(col: str):
 
 CONTENT = {
 
-    "brand": "ASVORA",
+    "brand": "ASZENIX",
 
     "logo": "",
 
@@ -689,7 +689,7 @@ def migrate_legacy_content():
 
         if admin.get("name") == "TECHPRO Admin":
 
-            admin["name"] = "ASVORA Admin"
+            admin["name"] = "ASZENIX Admin"
 
             changed = True
 
@@ -927,7 +927,7 @@ async def seed():
 
         raise RuntimeError("Set ADMIN_EMAIL and ADMIN_PASSWORD before starting the backend.")
 
-    insert("admins", {"email": email, "name": "ASVORA Admin", "hash": pwd.hash(password)})
+    insert("admins", {"email": email, "name": "ASZENIX Admin", "hash": pwd.hash(password)})
 
     insert("content", {"_id": "site", **CONTENT})
 
@@ -1202,7 +1202,7 @@ async def review(b: ReviewSubmission):
 
         "name": name,
 
-        "role": "ASVORA visitor",
+        "role": "ASZENIX visitor",
 
         "quote": quote_text or f"Rated {b.rating} out of 5 stars.",
 

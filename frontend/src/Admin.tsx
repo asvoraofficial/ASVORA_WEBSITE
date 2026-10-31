@@ -29,7 +29,7 @@ const Card = ({ children, className = '' }: any) => <div className={`card p-4 sm
 function Login({ ok, logo, error }: { ok: () => void; logo: string; error: string }) {
   const [e, setE] = useState(''), [p, setP] = useState(''), [err, setErr] = useState('')
   return <div className="grid min-h-screen place-items-center px-4"><motion.form initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} onSubmit={async x => { x.preventDefault(); try { const r = await api('/auth/login', { method: 'POST', body: { email: e, password: p } }); localStorage.setItem('tp_token', r.token); ok() } catch (z: any) { setErr(z.message) } }} className="card w-full max-w-sm space-y-4 p-6 sm:p-8">
-    <h1 className="font-display text-2xl font-bold"><BrandLogo logo={media(logo)}>ASVORA Admin</BrandLogo></h1><p className="text-sm text-white/50">Sign in to manage the website.</p>
+    <h1 className="font-display text-2xl font-bold"><BrandLogo logo={media(logo)}>ASZENIX Admin</BrandLogo></h1><p className="text-sm text-white/50">Sign in to manage the website.</p>
     {browserOnlyDemo && <p className="rounded-xl border border-yellow-400/20 bg-yellow-400/5 p-3 text-xs text-yellow-200">Browser-only demo: this is not secure authentication. Changes stay in this browser and do not update the live website. Open the public site with this same address and port to share demo changes.</p>}
     <input className="inp" type="email" placeholder="Email" value={e} onChange={x => setE(x.target.value)} required /><input className="inp" type="password" placeholder="Password" value={p} onChange={x => setP(x.target.value)} required />
     {(err || error) && <p role="alert" className="text-sm text-red-400">{err || error}</p>}<button className="btn-p w-full">Sign in</button></motion.form></div>
@@ -125,8 +125,8 @@ function RequestDetailModal({
   const isEnquiry = data.type === 'enquiries' || (data.title || '').toLowerCase().includes('enquiry')
   const isReview = data.type === 'testimonials' || (data.title || '').toLowerCase().includes('review')
 
-  const replySubject = `ASVORA - Regarding your ${isQuote ? 'project request' : 'enquiry'}`
-  const replyBody = `Hi ${data.name || 'there'},\n\nThank you for reaching out to ASVORA regarding your ${isQuote ? 'project request' : 'enquiry'}${data.service ? ` for ${data.service}` : ''}.\n\n`
+  const replySubject = `ASZENIX - Regarding your ${isQuote ? 'project request' : 'enquiry'}`
+  const replyBody = `Hi ${data.name || 'there'},\n\nThank you for reaching out to ASZENIX regarding your ${isQuote ? 'project request' : 'enquiry'}${data.service ? ` for ${data.service}` : ''}.\n\n`
   const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(data.email || '')}&su=${encodeURIComponent(replySubject)}&body=${encodeURIComponent(replyBody)}`
   const mailtoUrl = `mailto:${data.email}?subject=${encodeURIComponent(replySubject)}&body=${encodeURIComponent(replyBody)}`
 
@@ -703,7 +703,7 @@ function Profile({ me, logo, onSaved, onLogoSaved }: { me: any; logo: string; on
       <button className="btn-p" onClick={async () => { try { const r = await api('/auth/profile', { method: 'PUT', body: { email, name, password: pw || undefined } }); if (r.token) localStorage.setItem('tp_token', r.token); onSaved({ ...me, email, name }); setM('Saved'); setPw('') } catch (x: any) { setM(x.message) } }}>Save</button> <span className="text-sm text-lime">{m}</span>
     </Card>
     <Card className="max-w-md space-y-4">
-      <div><h2 className="font-display text-lg font-semibold">Site logo</h2><p className="mt-1 text-sm text-white/50">Upload a PNG, JPG, WEBP, SVG, or GIF up to 5 MB. It appears beside ASVORA across the site.</p></div>
+      <div><h2 className="font-display text-lg font-semibold">Site logo</h2><p className="mt-1 text-sm text-white/50">Upload a PNG, JPG, WEBP, SVG, or GIF up to 5 MB. It appears beside ASZENIX across the site.</p></div>
       {logo && <div className="flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 p-3"><img src={media(logo)} alt="Current site logo" className="h-16 w-16 rounded-lg bg-white/5 p-1 object-contain" /><span className="text-sm text-white/60">Current logo</span></div>}
       <label className={`btn-p cursor-pointer ${uploading ? 'pointer-events-none opacity-50' : ''}`}>{uploading ? 'Uploading…' : logo ? 'Replace logo' : 'Upload logo'}<input type="file" hidden accept="image/png,image/jpeg,image/webp,image/svg+xml,image/gif" disabled={uploading} onChange={e => { void uploadLogo(e.currentTarget.files?.[0]); e.currentTarget.value = '' }} /></label>
       {logo && <button className="btn-g ml-2" onClick={() => { void removeLogo() }}>Remove logo</button>}
@@ -762,7 +762,7 @@ export default function Admin() {
       {/* Desktop Sticky Sidebar */}
       <aside className="sticky top-0 h-screen max-h-screen w-64 border-r border-white/10 bg-panel p-4 sm:p-5 flex flex-col shrink-0">
         <div className="shrink-0 mb-6 flex items-center justify-between">
-          <a href="/" className="font-display text-xl font-bold"><BrandLogo logo={media(logo)} label="ASVORA" imageClassName="h-8 w-8">AS<span className="text-lime">VORA</span> <span className="text-xs text-white/40">admin</span></BrandLogo></a>
+          <a href="/" className="font-display text-xl font-bold"><BrandLogo logo={media(logo)} label="ASZENIX" imageClassName="h-8 w-8">AS<span className="text-lime">ZENIX</span> <span className="text-xs text-white/40">admin</span></BrandLogo></a>
           <a href="/" target="_blank" rel="noopener noreferrer" className="rounded-lg bg-white/5 px-2 py-1 text-xs text-white/50 hover:bg-white/10 hover:text-lime transition" title="Open public site">↗ Site</a>
         </div>
         <nav className="flex-1 space-y-1 overflow-y-auto overscroll-contain pr-1 scrollbar-thin">

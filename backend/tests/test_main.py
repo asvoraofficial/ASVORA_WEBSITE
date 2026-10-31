@@ -47,7 +47,7 @@ class PortfolioPersistenceTests(unittest.TestCase):
     def test_fresh_install_uses_real_brand_without_sample_claims(self):
         asyncio.run(main.seed())
         content = main.find_one("content", _id="site")
-        self.assertEqual(content["brand"], "ASVORA")
+        self.assertEqual(content["brand"], "ASZENIX")
         self.assertEqual(content["email"], "")
         self.assertTrue(all(not content[f"stat{i}"] for i in range(1, 5)))
         self.assertEqual(len(main.store["services"]), 3)
@@ -103,9 +103,9 @@ class PortfolioPersistenceTests(unittest.TestCase):
 
         asyncio.run(main.seed())
 
-        self.assertEqual(main.find_one("content", _id="site")["brand"], "ASVORA")
+        self.assertEqual(main.find_one("content", _id="site")["brand"], "ASZENIX")
         self.assertEqual(main.find_one("content", _id="site")["email"], "")
-        self.assertEqual(main.find_one("admins")["name"], "ASVORA Admin")
+        self.assertEqual(main.find_one("admins")["name"], "ASZENIX Admin")
         self.assertEqual(len(main.store["services"]), 3)
         self.assertEqual([row["title"] for row in main.store["projects"]], ["My real project"])
         self.assertEqual([row["name"] for row in main.store["testimonials"]], ["Real client"])
@@ -194,7 +194,7 @@ class PortfolioPersistenceTests(unittest.TestCase):
         self.assertEqual(admin_info["email"], "admin@example.com")
         me_res = asyncio.run(main.me(admin=admin_info))
         self.assertEqual(me_res["email"], "admin@example.com")
-        self.assertEqual(me_res["name"], "ASVORA Admin")
+        self.assertEqual(me_res["name"], "ASZENIX Admin")
 
         # 5. Auth dependency with invalid token
         with self.assertRaises(main.HTTPException) as err:
@@ -213,7 +213,7 @@ class PortfolioPersistenceTests(unittest.TestCase):
         created_work = asyncio.run(main.create(
             "projects",
             {
-                "title": "ASVORA Commerce",
+                "title": "ASZENIX Commerce",
                 "category": "Web Development",
                 "result": "+50% sales",
                 "description": "Full featured online store.",
@@ -221,18 +221,18 @@ class PortfolioPersistenceTests(unittest.TestCase):
             },
             admin_info
         ))
-        self.assertEqual(created_work["title"], "ASVORA Commerce")
+        self.assertEqual(created_work["title"], "ASZENIX Commerce")
         self.assertIn("id", created_work)
 
         # 8. List works / projects
         works_list = asyncio.run(main.list_("projects", _=admin_info))
         self.assertEqual(len(works_list), 1)
-        self.assertEqual(works_list[0]["title"], "ASVORA Commerce")
+        self.assertEqual(works_list[0]["title"], "ASZENIX Commerce")
 
         # 9. Verify work is returned in public API
         public_data = asyncio.run(main.public())
         self.assertEqual(len(public_data["projects"]), 1)
-        self.assertEqual(public_data["projects"][0]["title"], "ASVORA Commerce")
+        self.assertEqual(public_data["projects"][0]["title"], "ASZENIX Commerce")
 
     def test_admin_login_limits_repeated_failed_attempts(self):
         asyncio.run(main.seed())

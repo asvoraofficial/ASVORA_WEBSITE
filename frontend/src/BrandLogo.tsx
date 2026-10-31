@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 
 export default function BrandLogo({
   logo,
-  label = 'ASVORA',
+  label = 'ASZENIX',
   className = '',
   imageClassName = '',
   children,

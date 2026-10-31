@@ -8,7 +8,7 @@ export const DEFAULT_QUOTE_BUDGETS: string[] = []
 type DemoData = { content: Record<string, string>; [key: string]: any }
 export const browserOnlyDemo = DEMO_MODE
 const DEFAULT_CONTENT = {
-  brand: 'ASVORA',
+  brand: 'ASZENIX',
   logo: '',
   heroTitle: 'Digital solutions for your business',
   heroSub: 'AS Digital Studio delivers professional web development, creative video editing, and engaging content creation. We help businesses build their online presence with innovative digital solutions and premium quality.',
@@ -75,7 +75,7 @@ function newDemoData(): DemoData {
     projects: [],
     testimonials: [],
     enquiries: [], quotes: [], notifications: [], media: [], visits: [],
-    admin: { email: DEMO_EMAIL || '', name: 'ASVORA Admin' },
+    admin: { email: DEMO_EMAIL || '', name: 'ASZENIX Admin' },
   }
 }
 
@@ -111,7 +111,7 @@ function demoData(): DemoData {
       return true
     })
     if (data.admin?.name === 'TECHPRO Admin') {
-      data.admin.name = 'ASVORA Admin'
+      data.admin.name = 'ASZENIX Admin'
       changed = true
     }
     const projects = (data.projects || []).filter((row: any) => !LEGACY_PROJECTS.some(
@@ -220,7 +220,7 @@ async function demoApi(path: string, method: string, body: any) {
     data.testimonials.push({
       id: reviewId,
       name,
-      role: 'ASVORA visitor',
+      role: 'ASZENIX visitor',
       quote: quote || `Rated ${rating} out of 5 stars.`,
       rating,
       published: false,
